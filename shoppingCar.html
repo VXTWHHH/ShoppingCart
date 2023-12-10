@@ -1,0 +1,443 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+    <link href="../css/index.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <title>购物车</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .fa {
+            display: inline-block;
+            vertical-align: middle;
+            background: #f0f0f0 no-repeat center;
+            border: 1px solid #d0d0d0;
+            width: 16px;
+            height: 16px;
+            border-radius: 2px;
+            box-shadow: 0 1px rgba(100, 100, 100, .1);
+            color: #352a2a;
+            transition: color .2s, background-color .2s;
+        }
+
+        body {
+            background-color: #F5F5F5;
+            font-size: 12px;
+        }
+
+        .main {
+
+            border: 1px solid rgb(202, 186, 186);
+            background-color: #FFF;
+            border-radius: 20px;
+        }
+
+        .cartMain {
+            border-top: 1px solid #ccc;
+            padding-left: 10px;
+            padding: 20px;
+        }
+
+        .cartTitle {
+
+            font-weight: bolder;
+        }
+
+        .cart-sum {
+            float: right;
+
+        }
+
+        .cartBar {
+            height: 50px;
+            line-height: 50px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .cartBar span {
+            font-size: 17px;
+            margin-left: 15px;
+        }
+
+        .cartBar a {
+
+            text-decoration: none;
+            color: #666;
+            margin: 5px;
+        }
+
+        .orderHolder {
+            margin: 20px 0;
+        }
+
+        .orderContent {
+            background-color: #F8F8FF;
+            border-radius: 20px;
+            padding: 20px 0;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        ul li {
+            float: left;
+            list-style-type: none;
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        .price {
+            color: rgb(247, 3, 3);
+        }
+
+        .item-content {
+            padding: 30px 0;
+        }
+
+        .td-chk {
+            width: 70px;
+        }
+
+        .td-item {
+            width: 250px;
+            text-align: left;
+        }
+
+        .td-item img {
+            float: left;
+            width: 80px;
+            height: 80px;
+            padding-right: 10px;
+        }
+
+        .td-item span {
+            margin: 0 10px;
+        }
+
+        .td-info {
+            width: 250px;
+            text-align: left;
+        }
+
+        .td-price {
+            width: 70px;
+        }
+
+        .td-amount {
+            width: 70px;
+        }
+
+        .td-sum {
+            width: 50px;
+        }
+
+        .td-ope {
+            width: 50px;
+        }
+
+
+        .fa:active {
+            box-shadow: inset 0 1px rgba(100, 100, 100, .1);
+        }
+
+        .fa:hover {
+            background-color: #e9e9e9;
+            color: #333;
+        }
+
+        .fa_plus {
+            background-image: linear-gradient(to top, currentColor, currentColor), linear-gradient(to top, currentColor, currentColor);
+            background-size: 10px 2px, 2px 10px;
+        }
+
+        .fa_minus {
+            background-image: linear-gradient(to top, currentColor, currentColor);
+            background-size: 10px 2px;
+        }
+
+        input,
+        textarea {
+            line-height: 3em;
+            margin: 5px;
+        }
+
+        input {
+            line-height: 1em;
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <ul class="navbar">
+        <li><a href="#">用户名absdaada</a></li>
+        <li><a href="index.html">淘宝网首页</a></li>
+        <li>
+            <a href="#">我的淘宝</a>
+            <!-- 下拉框 -->
+            <ul class="dropdown">
+                <li><a href="#">已买到的宝贝</a></li>
+                <li><a href="#">我的足迹</a></li>
+            </ul>
+        </li>
+        <li><a href="shoppingCar.html">购物车</a></li>
+        <li>
+            <a href="#">收藏夹</a>
+            <!-- 下拉框 -->
+            <ul class="dropdown">
+                <li><a href="#">收藏的宝贝</a></li>
+                <li><a href="#">收藏的店铺</a></li>
+            </ul>
+        </li>
+    </ul>
+
+
+
+
+
+    <div class="main" id="cart">
+        <div class="cartBar">
+            <span>我的购物车</span>
+            <div class="cart-sum">
+
+            </div>
+        </div>
+        <div class="cartMain">
+            <div class="cartTitle clearfix">
+                <ul>
+                    <li style="width:520px">商品信息</li>
+                    <li style="width:70px">单价</li>
+                    <li style="width:70px">数量</li>
+                    <li style="width:50px">金额</li>
+                    <li style="width:50px">操作</li>
+                </ul>
+            </div>
+            <div id="orderList">
+                <div class="orderHolder" id="orderHolder1">
+                    <div><input type="checkbox" class="cart-checkbox" id="selectAllCheckbox">全选 </div>
+
+                    <div class="orderContent">
+                        <ul class="item-content clearfix" id="item001">
+                            <li class="td-chk"><input type="checkbox" name="items" id="checkbox001"></li>
+                            <li class="td-item"><img src="..\images\11.webp" /><span>长远无尘粉笔水溶性无尘粉笔20支儿童</span></li>
+                            <li class="td-info">颜色分类：彩色替换笔芯6支装</li>
+                            <li class="td-price">￥<span>8.50</span></li>
+                            <li class="td-amount"><i class="fa fa-minus"></i><input value="1" type="text" name="number"
+                                    id="number001"><i class="fa fa-plus"></i></li>
+                            <li class="td-sum price">￥<span id="sum001">8.50</span></li>
+                            <li class="td-ope"><a>删除</a></li>
+                        </ul>
+                        <ul class="item-content clearfix" id="item002">
+                            <li class="td-chk"><input type="checkbox" name="items" id="checkbox002"></li>
+                            <li class="td-item"><img src="..\images\12.webp" /><span>黑板墙贴磁性家用儿童可移除擦涂鸦不伤墙软白板自粘式磁吸</span>
+                            </li>
+                            <li class="td-info">尺寸：120x150cm颜色分类：绿板（可移除不伤墙）【特厚尊享款】-米白色软边框</li>
+                            <li class="td-price">￥189.00</li>
+                            <li class="td-amount"><i class="fa fa-minus"></i><input value="1" type="text" name="number"
+                                    id="number002"><i class="fa fa-plus"></i></li>
+                            <li class="td-sum price">￥189.00</li>
+                            <li class="td-ope"><a>删除</a></li>
+                        </ul>
+                        <ul class="item-content clearfix" id="item003">
+                            <li class="td-chk"><input type="checkbox" name="items"></li>
+                            <li class="td-item"><img src="..\images\13.webp" /><span>菲力的17种情绪 (法)迪迪埃·莱维 文(法)法布里斯·蒂里耶
+                                    图；高郁茗译
+                                    绘本非十七书籍类关于有关方面的利</span></li>
+                            <li class="td-info">分册名：情绪管理</li>
+                            <li class="td-price">￥29.00</li>
+                            <li class="td-amount"><i class="fa fa-minus"></i><input value="1" type="text" name="number"
+                                    id="number003"><i class="fa fa-plus"></i></li>
+                            <li class="td-sum price">￥29.00</li>
+                            <li class="td-ope"><a>删除</a></li>
+                        </ul>
+                        <ul class="item-content clearfix" id="item004">
+                            <li class="td-chk"><input type="checkbox" name="items"></li>
+                            <li class="td-item"><img src="..\images\14.webp" /><span>我的情绪小怪兽儿童绘本
+                                    3-6岁信谊世界精选图画书精装硬皮绘本亲子睡前故事儿童情商成长早教启蒙学前读物书籍</span></li>
+                            <li class="td-info">分册名：【蚯蚓的日记】乐观向上与多元思考</li>
+                            <li class="td-price">￥19.50</li>
+                            <li class="td-amount"><i class="fa fa-minus"></i><input value="1" type="text" name="number"
+                                    id="number004"><i class="fa fa-plus"></i></li>
+                            <li class="td-sum price">￥19.50</li>
+                            <li class="td-ope"><a>删除</a></li>
+                        </ul>
+                        <ul class="item-content clearfix" id="item005">
+                            <li class="td-chk"><input type="checkbox" name="items"></li>
+                            <li class="td-item"><img
+                                    src="..\images\15.webp" /><span>5册西游记绘本儿童版故事书幼儿园大闹天宫连环画美猴王上海美术电影制片厂齐天大圣哪咤闹海故事漫画书带拼音孙悟空绘本丛书6-7岁</span>
+                            </li>
+                            <li class="td-info">分册名：大闹天宫 全套5册【中国经典动画】</li>
+                            <li class="td-price">￥29.00</li>
+                            <li class="td-amount"><i class="fa fa-minus"></i><input value="1" type="text" name="number"
+                                    id="number005"><i class="fa fa-plus"></i></li>
+                            <li class="td-sum price">￥29.00</li>
+                            <li class="td-ope"><a>删除</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="cartBar">
+                <div class="cart-sum">
+                    <span class="pay-text" id="cart-number">已选商品0件</span>
+                    <span class="pay-text">合计（不含运费）：￥<strong class="price" id="cart-sum">0.00</strong></span>
+                    <a id="J_SmallSubmit" class="submit-btn">结&nbsp;算</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+
+
+        document.querySelectorAll('.cart-checkbox').forEach(
+            (checkbox) => {
+                checkbox.addEventListener('change', function () {
+                    checkedAll(this.parentNode.parentNode);
+                    updateTotal();
+                });
+            }
+        )
+
+        // 获取加减按钮和输入框元素
+        const decreaseButtons = document.querySelectorAll('.fa-minus');
+        const increaseButtons = document.querySelectorAll('.fa-plus');
+        const quantityInputs = document.querySelectorAll('input[name="number"]');
+        const checkboxInputs = document.querySelectorAll('input[name="items"]');
+        // 获取所有删除按钮
+        const deleteButtons = document.querySelectorAll('.td-ope a');
+
+        // 为加减按钮和输入框添加事件监听器
+        decreaseButtons.forEach(button => {
+            button.addEventListener('click', decreaseQuantity);
+        });
+
+        increaseButtons.forEach(button => {
+            button.addEventListener('click', increaseQuantity);
+        });
+
+        quantityInputs.forEach(input => {
+            input.addEventListener('input', updateQuantity);
+        });
+
+        // 为删除按钮添加事件监听器
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', deleteItem);
+        });
+
+        // 为复选框添加事件监听器
+        checkboxInputs.forEach(input => {
+            input.addEventListener('change', updateTotal);
+        });
+
+        function deleteItem(event) {
+            const item = event.target.closest('.item-content');
+            item.parentNode.removeChild(item);
+            updateTotal();
+        }
+
+        // 减少商品数量
+        function decreaseQuantity(event) {
+            const input = event.target.nextElementSibling;
+            let quantity = parseInt(input.value);
+
+            if (quantity > 0) {
+                quantity--;
+                input.value = quantity;
+                updateAmount(input);
+                updateTotal();
+            }
+
+        }
+
+
+
+
+
+        // 全选
+        document.getElementById('selectAllCheckbox').addEventListener('change', function () {
+            const isChecked = this.checked;
+            // 更新所有商品复选框以匹配“全选”复选框的状态
+            document.querySelectorAll('input[name="items"]').forEach(itemCheckbox => {
+                itemCheckbox.checked = isChecked;
+            });
+            // 更新总金额
+            updateTotal();
+        });
+        document.querySelectorAll('.cart-checkbox').forEach(
+            (checkbox) => {
+                checkbox.addEventListener('change', function () {
+                    checkedAll(this.parentNode.parentNode);
+                    updateTotal();
+                });
+            }
+        )
+
+        // 增加商品数量
+        function increaseQuantity(event) {
+            const input = event.target.previousElementSibling;
+            let quantity = parseInt(input.value);
+
+            quantity++;
+            input.value = quantity;
+            updateAmount(input);
+            updateTotal();
+
+        }
+
+        // 更新商品数量
+        function updateQuantity(event) {
+            const input = event.target;
+            updateAmount(input);
+            updateTotal();
+        }
+
+        // 更新商品金额
+        function updateAmount(input) {
+            const price = parseFloat(input.parentNode.previousElementSibling.innerText.slice(1));
+            const quantity = parseInt(input.value);
+            const amount = (price * quantity).toFixed(2);
+            input.parentNode.nextElementSibling.innerText = "¥" + amount;
+
+        }
+
+        // 更新总金额和已选商品数量
+        // 更新总金额的函数
+        function updateTotal() {
+            let total = 0;
+            let selectedCount = 0;
+
+            // 遍历每个商品
+            document.querySelectorAll('.item-content').forEach((item, index) => {
+                const checkbox = item.querySelector('input[name="items"]');
+                const quantityInput = item.querySelector('input[name="number"]');
+
+                if (checkbox.checked) {
+                    const quantity = parseInt(quantityInput.value);
+                    const price = parseFloat(item.querySelector('.td-price').innerText.slice(1));
+                    total += quantity * price;
+                    selectedCount += quantity;
+                }
+            });
+
+            // 更新总金额和选中数量
+            document.getElementById("cart-sum").innerText = total.toFixed(2);
+            document.getElementById("cart-number").innerText = "已选商品" + selectedCount + "件";
+        }
+
+        // 初始化总金额和已选商品数量
+        updateTotal();
+
+    </script>
+</body>
+
+</html>
