@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>天猫热卖</title>
     <link href="css/index.css" rel="stylesheet" type="text/css" />
-    <script src="./request.js"></script>
     <style>
         .item,
         .page {
@@ -23,6 +22,9 @@
             /* 鼠标移入时的边框样式 */
         }
     </style>
+    <script src="./js/request.js"></script>
+    <script src="./js/getProductions.js"></script>
+    <script src="./js/getList.js"></script>
 </head>
 
 <body>
@@ -76,235 +78,33 @@
 
     <!--商品列表 -->
     <div id="mainContain">
-        <!-- 需对.item的div增加移入移出事件，移入时边框变为红色，移除出恢复默认边框  -->
-        <div class="item">
-            <img src="./images/01.webp" alt="" width="100%" style="margin-top: 10px;">
-            <div class="title">
-                <span>半墨大码男装胖人短袖t恤男冰丝宽松大号200-300斤男士夏天衣服潮</span>
-            </div>
-            <div class="price">
-                <span>￥86.90</span>
-                <span>￥99.00</span>
-            </div>
-            <div class="store">
-                <img src="./images/store_icon.PNG" alt="">
-                <span>半墨旗舰店</span>
-            </div>
-            <div class="sales">
-                <div>月销200</div>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="./images/01.webp" alt="" width="100%" style="margin-top: 10px;">
-            <div class="title">
-                <span>半墨大码男装胖人短袖t恤男冰丝宽松大号200-300斤男士夏天衣服潮</span>
-            </div>
-            <div class="price">
-                <span>￥86.90</span>
-                <span>￥99.00</span>
-            </div>
-            <div class="store">
-                <img src="./images/store_icon.PNG" alt="">
-                <span>半墨旗舰店</span>
-            </div>
-            <div class="sales">
-                <div>月销200</div>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="./images/01.webp" alt="" width="100%" style="margin-top: 10px;">
-            <div class="title">
-                <span>半墨大码男装胖人短袖t恤男冰丝宽松大号200-300斤男士夏天衣服潮</span>
-            </div>
-            <div class="price">
-                <span>￥86.90</span>
-                <span>￥99.00</span>
-            </div>
-            <div class="store">
-                <img src="./images/store_icon.PNG" alt="">
-                <span>半墨旗舰店</span>
-            </div>
-            <div class="sales">
-                <div>月销200</div>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="./images/01.webp" alt="" width="100%" style="margin-top: 10px;">
-            <div class="title">
-                <span>半墨大码男装胖人短袖t恤男冰丝宽松大号200-300斤男士夏天衣服潮</span>
-            </div>
-            <div class="price">
-                <span>￥86.90</span>
-                <span>￥99.00</span>
-            </div>
-            <div class="store">
-                <img src="./images/store_icon.PNG" alt="">
-                <span>半墨旗舰店</span>
-            </div>
-            <div class="sales">
-                <div>月销200</div>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="./images/01.webp" alt="" width="100%" style="margin-top: 10px;">
-            <div class="title">
-                <span>半墨大码男装胖人短袖t恤男冰丝宽松大号200-300斤男士夏天衣服潮</span>
-            </div>
-            <div class="price">
-                <span>￥86.90</span>
-                <span>￥99.00</span>
-            </div>
-            <div class="store">
-                <img src="./images/store_icon.PNG" alt="">
-                <span>半墨旗舰店</span>
-            </div>
-            <div class="sales">
-                <div>月销200</div>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="./images/01.webp" alt="" width="100%" style="margin-top: 10px;">
-            <div class="title">
-                <span>半墨大码男装胖人短袖t恤男冰丝宽松大号200-300斤男士夏天衣服潮</span>
-            </div>
-            <div class="price">
-                <span>￥86.90</span>
-                <span>￥99.00</span>
-            </div>
-            <div class="store">
-                <img src="./images/store_icon.PNG" alt="">
-                <span>半墨旗舰店</span>
-            </div>
-            <div class="sales">
-                <div>月销200</div>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="./images/01.webp" alt="" width="100%" style="margin-top: 10px;">
-            <div class="title">
-                <span>半墨大码男装胖人短袖t恤男冰丝宽松大号200-300斤男士夏天衣服潮</span>
-            </div>
-            <div class="price">
-                <span>￥86.90</span>
-                <span>￥99.00</span>
-            </div>
-            <div class="store">
-                <img src="./images/store_icon.PNG" alt="">
-                <span>半墨旗舰店</span>
-            </div>
-            <div class="sales">
-                <div>月销200</div>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="./images/01.webp" alt="" width="100%" style="margin-top: 10px;">
-            <div class="title">
-                <span>半墨大码男装胖人短袖t恤男冰丝宽松大号200-300斤男士夏天衣服潮</span>
-            </div>
-            <div class="price">
-                <span>￥86.90</span>
-                <span>￥99.00</span>
-            </div>
-            <div class="store">
-                <img src="./images/store_icon.PNG" alt="">
-                <span>半墨旗舰店</span>
-            </div>
-            <div class="sales">
-                <div>月销200</div>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="./images/01.webp" alt="" width="100%" style="margin-top: 10px;">
-            <div class="title">
-                <span>半墨大码男装胖人短袖t恤男冰丝宽松大号200-300斤男士夏天衣服潮</span>
-            </div>
-            <div class="price">
-                <span>￥86.90</span>
-                <span>￥99.00</span>
-            </div>
-            <div class="store">
-                <img src="./images/store_icon.PNG" alt="">
-                <span>半墨旗舰店</span>
-            </div>
-            <div class="sales">
-                <div>月销200</div>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="./images/01.webp" alt="" width="100%" style="margin-top: 10px;">
-            <div class="title">
-                <span>半墨大码男装胖人短袖t恤男冰丝宽松大号200-300斤男士夏天衣服潮</span>
-            </div>
-            <div class="price">
-                <span>￥86.90</span>
-                <span>￥99.00</span>
-            </div>
-            <div class="store">
-                <img src="./images/store_icon.PNG" alt="">
-                <span>半墨旗舰店</span>
-            </div>
-            <div class="sales">
-                <div>月销200</div>
-            </div>
-        </div>
-
-
     </div>
 
     <!-- 分页 -->
     <div class="pageInfo">
         <!--需对按钮增加移入移出事件，移入时按钮边框和按钮文本变为红色，移除时恢复为默认状态 -->
-        <span class="page">&lt;上一页</span>
+        <span class="page" onclick="refresh(--pageNum)">&lt;上一页</span>
 
         <span id="pageNav">......</span>
-        <span class="page">下一页&gt;</span>
+        <span class="page" onclick="refresh(++pageNum)">下一页&gt;</span>
 
-        <span class="page">首页</span>
+        <span class="page" onclick="refresh(pageNum=1)">首页</span>
     </div>
     <!-- 底部区域 -->
 
 
     <script>
-        var formData = [];
-        var items = document.querySelectorAll(".item");
-        var titleElement = document.querySelectorAll(".title");
-        var price = document.querySelectorAll(".price");
-        var store = document.querySelectorAll(".store");
-        var sales = document.querySelectorAll(".sales");
-        request(
-            function (error, data) {
-                this.formData = data;
-                for (let index = 0; index < items.length; index++) {
-                    items[index].querySelector("img").src = formData[index].imageUrl;
-                }
-                for (let index = 0; index < titleElement.length; index++) {
-                    titleElement[index].querySelector("span").innerHTML = formData[index].name;
-                }
-                for (let index = 0; index < price.length; index++) {
-                    price[index].querySelectorAll("span")[0].innerHTML = "￥" + formData[index].nowPrice;
-                    price[index].querySelectorAll("span")[1].innerHTML = "￥" + formData[index].oldPrice;
-                }
-                for (let index = 0; index < store.length; index++) {
-                    store[index].querySelector("span").innerHTML = formData[index].storeName;
-                }
-                for (let index = 0; index < sales.length; index++) {
-                    sales[index].querySelector("div").innerHTML = "月销" + formData[index].sales;
-                }
+        var pageNum = 1;
+        var items = [];
+        var titleElement = [];
+        var price = [];
+        var store = [];
+        var sales = [];
 
-            }
-        )
+
+        getList(1);
 
         var border = document.querySelectorAll(".item,.page");
-        console.log(border);
         // 遍历每个商品容器元素
         border.forEach(function (itemContainer) {
             // 添加鼠标移入事件监听器
@@ -317,6 +117,12 @@
                 this.classList.remove('hovered'); // 移除类名
             });
         });
+
+        function refresh(page) {
+            if (page < 1) this.pageNum = 1;
+            if (page > 4) this.pageNum = 4;
+            getList(this.pageNum);
+        }
     </script>
 </body>
 
