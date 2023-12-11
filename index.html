@@ -25,6 +25,7 @@
     <script src="./js/request.js"></script>
     <script src="./js/getProductions.js"></script>
     <script src="./js/getList.js"></script>
+    <script src="./js/getPriceData.js"></script>
 </head>
 
 <body>
@@ -72,7 +73,8 @@
         <div class="bar-group " style="padding-left:20px;">价格区间</div>
         <div class="bar-group price-bar"><span><input value="" class="txt" placeholder="￥"><span
                     style="margin: 0 2px;">-</span><input value="" class="txt" placeholder="￥"></span><span
-                class="price-submit"><input type="button" value="确定" class="price-btn"></span></div>
+                class="price-submit"><input type="button" value="确定" class="price-btn" onclick="getPriceData()"></span>
+        </div>
     </div>
 
 
@@ -100,9 +102,15 @@
         var price = [];
         var store = [];
         var sales = [];
+        var priceData = [];
 
-
-        getList(1);
+        //初始化页面
+        getProductions(
+            1,
+            (e, data) => {
+                getList(data);
+            }
+        )
 
         var border = document.querySelectorAll(".item,.page");
         // 遍历每个商品容器元素
@@ -121,8 +129,17 @@
         function refresh(page) {
             if (page < 1) this.pageNum = 1;
             if (page > 4) this.pageNum = 4;
-            getList(this.pageNum);
+            getList(
+                getProductions(
+                    this.pageNum,
+                    (e, data) => {
+                        getList(data);
+                    }
+                )
+            );
         }
+
+        
     </script>
 </body>
 
