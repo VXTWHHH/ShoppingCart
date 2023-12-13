@@ -5,7 +5,7 @@
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
-                    console.log("请求成功");
+                    //console.log("请求成功");
                     var data = JSON.parse(xhr.responseText);
                     callback(null,data);
                 } else {

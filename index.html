@@ -26,6 +26,8 @@
     <script src="./js/getProductions.js"></script>
     <script src="./js/getList.js"></script>
     <script src="./js/getPriceData.js"></script>
+    <script src="./js/getSearchData.js"></script>
+    <script src="./js/pagination.js"></script>
 </head>
 
 <body>
@@ -59,10 +61,10 @@
         <img src="./images/taobaosale.avif">
         <div class="search">
             <div class="search-border">
-                <form mx-submit="submit()">
+                <form>
                     <span class="text-wrap"><input type="text" class="text" name="key">
                     </span>
-                    <input mx-click="submit()" type="submit" class="submit" value="搜索" index="1">
+                    <input onclick="search(this)" type="submit" class="submit" value="搜索">
                 </form>
             </div>
         </div>
@@ -103,6 +105,7 @@
         var store = [];
         var sales = [];
         var priceData = [];
+        var searchData = [];
 
         //初始化页面
         getProductions(
@@ -139,7 +142,16 @@
             );
         }
 
-        
+        function search(node) {
+            const pNode = node.parentElement;
+            pNode.addEventListener('submit', function (event) {
+                // 阻止表单提交的默认行为
+                event.preventDefault();
+                const queryStr = pNode.querySelector(".text").value;
+                getSearchData(queryStr);
+            });
+        }
+
     </script>
 </body>
 

@@ -1,0 +1,313 @@
+[
+    {
+        "pid": 1,
+        "name": "半墨大码男装胖人短袖t恤男冰丝宽松大号200-300斤男士夏天衣服潮",
+        "nowPrice": 86.9,
+        "oldPrice": 99,
+        "storeName": "半墨旗舰店",
+        "sales": 200,
+        "imageUrl": "images/01.webp",
+        "type": "衣服"
+    },
+    {
+        "pid": 2,
+        "name": "花花公子男士短袖T恤半袖新款夏季纯色纯棉体恤白色半袖潮流打底",
+        "nowPrice": 89,
+        "oldPrice": 158,
+        "storeName": "花花公子浙江特卖店",
+        "sales": 900,
+        "imageUrl": "images/02.webp",
+        "type": "衣服"
+    },
+    {
+        "pid": 3,
+        "name": "徐太浪短袖夏季男款t恤拼接撞色美式高街320g重磅潮牌设计感衣服",
+        "nowPrice": 109,
+        "oldPrice": 119,
+        "storeName": "徐太郎 ALang Studio",
+        "sales": 100,
+        "imageUrl": "images/03.webp",
+        "type": "衣服"
+    },
+    {
+        "pid": 4,
+        "name": "【罗蒙正品】春秋季男士长袖T恤翻领纯色棉POLO衫男爸爸装上衣",
+        "nowPrice": 148,
+        "oldPrice": 298,
+        "storeName": "罗蒙品牌男装城",
+        "sales": 44,
+        "imageUrl": "images/04.webp",
+        "type": "衣服"
+    },
+    {
+        "pid": 5,
+        "name": "黑色宽松短袖t恤女纯棉上衣2023新款夏季欧洲站洋气小衫欧货t桖",
+        "nowPrice": 54.9,
+        "oldPrice": 69.9,
+        "storeName": "枫莲思旗舰店",
+        "sales": 500,
+        "imageUrl": "images/05.webp",
+        "type": "衣服"
+    },
+    {
+        "pid": 6,
+        "name": "纯棉长袖t恤女修身显瘦内搭打底衫薄款洋气外穿春秋季不规则上衣",
+        "nowPrice": 39.9,
+        "oldPrice": 78.99,
+        "storeName": "吾雅伊旗舰店",
+        "sales": 81,
+        "imageUrl": "images/06.webp",
+        "type": "衣服"
+    },
+    {
+        "pid": 7,
+        "name": "2023新款韩版宽松拼接撞色插肩袖纯棉圆领短袖T恤女半袖体恤上衣",
+        "nowPrice": 37.9,
+        "oldPrice": 39.9,
+        "storeName": "吾雅伊旗舰店",
+        "sales": 17,
+        "imageUrl": "images/07.webp",
+        "type": "衣服"
+    },
+    {
+        "pid": 8,
+        "name": "白色长袖t恤女纯棉2023年新款春秋洋气时尚黑色内搭打底衫上衣服",
+        "nowPrice": 118,
+        "oldPrice": 139,
+        "storeName": "枫莲思旗舰店",
+        "sales": 76,
+        "imageUrl": "images/08.webp",
+        "type": "衣服"
+    },
+    {
+        "pid": 9,
+        "name": "气质小衫女春秋黑色V领修身打底衫妈妈内搭薄款长袖洋气遮肚上衣",
+        "nowPrice": 133,
+        "oldPrice": 138,
+        "storeName": "欧悦姿旗舰店",
+        "sales": 100,
+        "imageUrl": "images/09.webp",
+        "type": "衣服"
+    },
+    {
+        "pid": 10,
+        "name": "2023情侣装夏装纯棉短袖polo衫拍结婚照领证登记白色T恤衬衫衣服",
+        "nowPrice": 99,
+        "oldPrice": 129,
+        "storeName": "启驰旗舰店",
+        "sales": 1006,
+        "imageUrl": "images/10.webp",
+        "type": "衣服"
+    }
+    ,
+    {
+        "pid": 11,
+        "name": "品牌优选春季男士夹克休闲运动男装春秋薄款连帽百搭冲锋衣外套男",
+        "nowPrice": 208.0,
+        "oldPrice": 599.0,
+        "storeName": "海澜优质品质生活馆",
+        "sales": 2000,
+        "imageUrl": "images/11.webp",
+        "type": "衣服"
+    },
+    {
+        "pid": 12,
+        "name": "荣耀X40 12+256G 5G曲面屏手机官方旗舰正品店官网快充千元游戏智能5g分为畅享mate30/GT",
+        "nowPrice": 1188.0,
+        "oldPrice": 1288.0,
+        "storeName": "海康智能数码专营店",
+        "sales": 1599,
+        "imageUrl": "images/12.webp",
+        "type": "手机"
+    },
+    {
+        "pid": 13,
+        "name": "Apple/苹果 iPhone 12ProMax 12 12Pro 全网通5G正品手机",
+        "nowPrice": 5298.0,
+        "oldPrice": 5799.0,
+        "storeName": "华讯数码商城",
+        "sales": 256,
+        "imageUrl": "images/13.webp",
+        "type": "手机"
+    },
+    {
+        "pid": 14,
+        "name": "Xiaomi/小米13 新款小米13手机小米官网官方旗舰店徕卡小米13pro红米xiaomi13",
+        "nowPrice": 3999.0,
+        "oldPrice": 4199.0,
+        "storeName": "佰分购旗舰店",
+        "sales": 789,
+        "imageUrl": "images/14.webp",
+        "type": "手机"
+    },
+    {
+        "pid": 15,
+        "name": "OPPO Find N2 Flip oppo find n2 flip 折叠屏手机 oppo手机官方旗舰店官网0ppo5g新款",
+        "nowPrice": 5989.0,
+        "oldPrice": 5999.0,
+        "storeName": "OPPO Find N2 Flip oppo find n2 flip 折叠屏手机 oppo手机官方旗舰店官网0ppo5g新款",
+        "sales": 93,
+        "imageUrl": "images/15.webp",
+        "type": "手机"
+    },
+    {
+        "pid": 16,
+        "name": "品上市全新官方旗舰正品viipoo学生价百元电竞畅玩大型游戏超薄大屏安卓备用双卡双待全网通智能手机",
+        "nowPrice": 498.0,
+        "oldPrice": 528.0,
+        "storeName": "viipoo旗舰店",
+        "sales": 598,
+        "imageUrl": "images/16.webp",
+        "type": "手机"
+    },
+    {
+        "pid": 17,
+        "name": "全新官网 5G手机官方旗舰Play 6C正品店热销排行Huawei/华为 P30",
+        "nowPrice": 1698.0,
+        "oldPrice": 1899.0,
+        "storeName": "优品购数码主营店",
+        "sales": 245,
+        "imageUrl": "images/17.webp",
+        "type": "手机"
+    },
+    {
+        "pid": 18,
+        "name": "官网正品Huawei/华为50z 8+256GB新款高端全网通旗舰手机智能官方专卖店畅享",
+        "nowPrice": 1298.0,
+        "oldPrice": 1398.0,
+        "storeName": "祥康优数码专营店",
+        "sales": 17,
+        "imageUrl": "images/18.webp",
+        "type": "手机"
+    },
+    {
+        "pid": 19,
+        "name": "vivo Y73t新品全面屏游戏拍照学生5G智能手机大电池y52t官方旗舰店正品y73T",
+        "nowPrice": 1199.0,
+        "oldPrice": 1299.0,
+        "storeName": "vivo手机官方旗舰店",
+        "sales": 1598,
+        "imageUrl": "images/19.webp",
+        "type": "手机"
+    },
+    {
+        "pid": 20,
+        "name": "清仓老人智能手机移动联通电信全网通4G游戏老年机大屏大字大声超长待机微信学生价手机适用oppo小米耳机",
+        "nowPrice": 299.0,
+        "oldPrice": 499.0,
+        "storeName": "泰昌数码专营店",
+        "sales": 782,
+        "imageUrl": "images/20.webp",
+        "type": "手机"
+    }
+    ,{
+        "pid": 21,
+        "name": "轻薄便携笔记本电脑15.6英寸办公商务学生手提游戏本女生款适用于华为鼠标",
+        "nowPrice": 1158.0,
+        "oldPrice": 1318.0,
+        "storeName": "轻薄便携笔记本电脑15.6英寸办公商务学生手提游戏本女生款适用于华为鼠标",
+        "sales": 911,
+        "imageUrl": "images/21.webp",
+        "type": "电脑"
+    },
+    {
+        "pid": 22,
+        "name": "2023新款笔记本电脑轻薄便携大学生女生款超薄酷睿i7办公商务手提适用小米华为联想华硕鼠标",
+        "nowPrice": 1157.0,
+        "oldPrice": 1411.0,
+        "storeName": "泰昌数码专营店",
+        "sales": 599,
+        "imageUrl": "images/22.webp",
+        "type": "电脑"
+    },
+    {
+        "pid": 23,
+        "name": "笔记本电脑轻薄便携办公商务超薄大学生网课游戏本高配手提电脑女生款适用华为鼠标",
+        "nowPrice": 1158.0,
+        "oldPrice": 1318.0,
+        "storeName": "摆渡者风控专卖店",
+        "sales": 788,
+        "imageUrl": "images/23.webp",
+        "type": "电脑"
+    },
+    {
+        "pid": 24,
+        "name": "华硕无畏15 2022款全新12代酷睿i5 学生15.6寸轻薄商务办公手提笔记本电脑官方旗舰店官网",
+        "nowPrice": 3199.0,
+        "oldPrice": 3399.0,
+        "storeName": "华硕无畏15 2022款全新12代酷睿i5 学生15.6寸轻薄商务办公手提笔记本电脑官方旗舰店官网",
+        "sales": 3009,
+        "imageUrl": "images/24.webp",
+        "type": "电脑"
+    },
+    {
+        "pid": 25,
+        "name": "Dell戴尔轻薄本酷睿i5超薄i3商务办公手提笔记本电脑灵越3511成就3420学生网课学习14寸15官方旗舰店官网同款",
+        "nowPrice": 2699.0,
+        "oldPrice": 2899.0,
+        "storeName": "戴尔力持专卖店",
+        "sales": 1299,
+        "imageUrl": "images/25.webp",
+        "type": "电脑"
+    },
+    {
+        "pid": 26,
+        "name": "联想拯救者R7000P/Y9000P全新原装15.6英寸酷睿i7游戏笔记本电脑",
+        "nowPrice": 6899.0,
+        "oldPrice": 7299.0,
+        "storeName": "联想专卖店",
+        "sales": 8822,
+        "imageUrl": "images/26.webp",
+        "type": "电脑"
+    },
+    {
+        "pid": 27,
+        "name": "COACH/蔻驰经典标志HADLEY21号半月包手提包",
+        "nowPrice": 2475.0,
+        "oldPrice": 2999.0,
+        "storeName": "COACH蔻驰官方旗舰店",
+        "sales": 321,
+        "imageUrl": "images/27.webp",
+        "type": "箱包"
+    },
+    {
+        "pid": 28,
+        "name": "【刘诗诗同款】TOD'S官方正品2023春夏新品T CASE手提包饺子包女",
+        "nowPrice": 14500.0,
+        "oldPrice": 15799.0,
+        "storeName": "TOD'S官方旗舰店",
+        "sales": 121,
+        "imageUrl": "images/28.webp",
+        "type": "箱包"
+    },
+    {
+        "pid": 29,
+        "name": "YSL/圣罗兰 女士NIKI中号手提包SAINT LAURENT肩背包",
+        "nowPrice": 22300.0,
+        "oldPrice": 23999.0,
+        "storeName": "圣罗兰官方旗舰店",
+        "sales": 112,
+        "imageUrl": "images/29.webp",
+        "type": "箱包"
+    },
+    {
+        "pid": 30,
+        "name": "itGdledy小众真皮鳄鱼纹手提小方包女今年流行mini小包白色斜挎包",
+        "nowPrice": 209.0,
+        "oldPrice": 2999.0,
+        "storeName": "香港IT GDLEDY箱包官方店",
+        "sales": 288,
+        "imageUrl": "images/30.webp",
+        "type": "箱包"
+    },
+    {
+        "pid": 31,
+        "name": "HFresh白色法式腋下包包法棍包单肩包女士2022新款轻奢高级感真皮",
+        "nowPrice": 318.0,
+        "oldPrice": 499.0,
+        "storeName": "箱包专门店",
+        "sales": 500,
+        "imageUrl": "images/31.webp",
+        "type": "箱包"
+    }
+]
