@@ -25,7 +25,7 @@
     <script src="./js/request.js"></script>
     <script src="./js/getProductions.js"></script>
     <script src="./js/getList.js"></script>
-    <script src="./js/getPriceData.js"></script>
+    <script src="./js/priceFilter.js"></script>
     <script src="./js/getSearchData.js"></script>
     <script src="./js/pagination.js"></script>
 </head>
@@ -87,31 +87,36 @@
     <!-- 分页 -->
     <div class="pageInfo">
         <!--需对按钮增加移入移出事件，移入时按钮边框和按钮文本变为红色，移除时恢复为默认状态 -->
-        <span class="page" onclick="refresh(--pageNum)">&lt;上一页</span>
+        <span class="page" onclick="refresh(--pageInfo.pageNum)">&lt;上一页</span>
 
         <span id="pageNav">......</span>
-        <span class="page" onclick="refresh(++pageNum)">下一页&gt;</span>
+        <span class="page" onclick="refresh(++pageInfo.pageNum)">下一页&gt;</span>
 
-        <span class="page" onclick="refresh(pageNum=1)">首页</span>
+        <span class="page" onclick="refresh(pageInfo.pageNum=1)">首页</span>
     </div>
     <!-- 底部区域 -->
 
 
     <script>
-        var pageNum = 1;
+        var pageInfo = {
+            pageData: [],
+            currentPageData: [],
+            pageNum: 1,
+        };
         var items = [];
         var titleElement = [];
         var price = [];
         var store = [];
         var sales = [];
+        var showData = [];
         var priceData = [];
-        var searchData = [];
-
+        var previousSubmitHandler = null;
         //初始化页面
         getProductions(
-            1,
             (e, data) => {
-                getList(data);
+                resetPageData();
+                this.showData = data;
+                getList(pagination(this.showData, 1).currentPageData);
             }
         )
 
@@ -130,26 +135,56 @@
         });
 
         function refresh(page) {
-            if (page < 1) this.pageNum = 1;
-            if (page > 4) this.pageNum = 4;
-            getList(
-                getProductions(
-                    this.pageNum,
-                    (e, data) => {
-                        getList(data);
-                    }
-                )
-            );
+            resetPageData();
+            this.pageInfo = pagination(this.showData, this.pageInfo.pageNum);
+            getList(this.pageInfo.currentPageData);
         }
 
         function search(node) {
+            clearFilter();
             const pNode = node.parentElement;
-            pNode.addEventListener('submit', function (event) {
+
+            // 移除上一次的监听函数
+            if (previousSubmitHandler) {
+                pNode.removeEventListener('submit', previousSubmitHandler);
+            }
+
+            // 添加新的监听函数
+            const submitHandler = function (event) {
                 // 阻止表单提交的默认行为
                 event.preventDefault();
                 const queryStr = pNode.querySelector(".text").value;
-                getSearchData(queryStr);
-            });
+                resetPageData();
+                getProductions(
+                    (e, d) => {
+                        showData = getSearchData(queryStr, d);
+                        getList(pagination(showData, 1).currentPageData);
+                    }
+                )
+            };
+
+            pNode.addEventListener('submit', submitHandler);
+
+            // 保存当前监听函数，以便下一次移除
+            previousSubmitHandler = submitHandler;
+        }
+
+        function getPriceData() {
+            this.showData = priceFilter(this.showData);
+            resetPageData();
+            getList(pagination(showData, 1).currentPageData);
+        }
+
+        //使用分页前记得重置分页数据！！！
+        function resetPageData() {
+            this.pageInfo.pageData = [];
+            this.pageInfo.currentPageData = [];
+        }
+
+        //清除价格筛选器中的数据
+        function clearFilter() {
+           document.querySelectorAll(".txt")[0].value = "";
+           document.querySelectorAll(".txt")[1].value = "";
         }
 
     </script>

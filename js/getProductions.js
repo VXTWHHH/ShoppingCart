@@ -5,7 +5,7 @@
 
 
 //获取前端模拟的数据
-function getProductions(pageNum, callback) {
+function getProductions(callback) {
     // 模拟是否出现错误
     var hasError = false;
     // 引用 JSON 文件
@@ -17,7 +17,6 @@ function getProductions(pageNum, callback) {
             return response.json();
         })
         .then(mockData => {
-            mockData = pagination(mockData,pageNum).currentPageData;
             // 模拟异步请求，使用 setTimeout 模拟网络延迟
             setTimeout(function () {
                 try {
