@@ -35,7 +35,7 @@
 
     <!-- 导航栏 -->
     <ul class="navbar">
-        <li><a href="#">用户名absdaada</a></li>
+        <li><a href="#">请登录!</a></li>
         <li><a href="#">淘宝网首页</a></li>
         <li>
             <a href="#">我的淘宝</a>
@@ -109,13 +109,14 @@
         var store = [];
         var sales = [];
         var showData = [];
-        var priceData = [];
+        var tempData = [];
         var previousSubmitHandler = null;
         //初始化页面
         getProductions(
             (e, data) => {
                 resetPageData();
                 this.showData = data;
+                this.tempData = data;
                 getList(pagination(this.showData, 1).currentPageData);
             }
         )
@@ -158,6 +159,8 @@
                 getProductions(
                     (e, d) => {
                         showData = getSearchData(queryStr, d);
+                        tempData = showData;
+                        refresh(pageInfo.pageNum=1);
                         getList(pagination(showData, 1).currentPageData);
                     }
                 )
@@ -170,8 +173,11 @@
         }
 
         function getPriceData() {
+            console.log(this.tempData);
+            this.showData = this.tempData;
             this.showData = priceFilter(this.showData);
             resetPageData();
+            refresh(pageInfo.pageNum=1);
             getList(pagination(showData, 1).currentPageData);
         }
 
