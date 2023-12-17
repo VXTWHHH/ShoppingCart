@@ -7,14 +7,14 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.101.0">
-    <title>Signin Template · Bootstrap v4.6</title>
+    <title>用户登录</title>
 
 
-    <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.css" rel="stylesheet">
-
-
-
+    <link href="./css/signin.css" rel="stylesheet">
+    <script src="./js/getUserInfo.js"></script>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script src="./js/jquery.cookie.js"></script>
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -31,31 +31,60 @@
             }
         }
     </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="./css/signin.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
 
     <form class="form-signin">
-        <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017-2022</p>
+        <h1 class="h3 mb-3 font-weight-normal">密码登录</h1>
+        <input type="text" id="username" class="form-control" placeholder="账户名/邮箱号/手机号" required autofocus>
+        <input type="password" id="password" class="form-control" placeholder="请输入登录密码" required>
+        <button class="btn btn-lg btn-login btn-block" type="submit">登录</button>
+        <span class="register"><a href="./register.html">免费注册</a></span>
     </form>
 
+    <script>
+        $(document).ready(function () {
+            $(".form-signin").submit(function (event) {
+                event.preventDefault();
 
+                var isValidUser = false;
+
+                var username = localStorage.getItem('username');
+                var password = localStorage.getItem('password');
+
+                let userInput = $('#username').val();
+                let passInput = $('#password').val();
+                if (userInput && passInput) {
+                    $(document).ready(function () {
+                        getUserInfo(
+                            (e, d) => {
+                                d.forEach(element => {
+                                    if (element.username == userInput && element.password == passInput) {
+                                        isValidUser = true;
+                                        $.cookie('username', userInput, { expires: 1, path: '/' });
+                                        $.cookie('password', passInput, { expires: 1, path: '/' });
+                                        window.location.href = "./index.html";
+                                    }
+                                });
+                                if (username == userInput && password == passInput) {
+                                    isValidUser = true;
+                                    $.cookie('username', username, { expires: 1, path: '/' });
+                                    $.cookie('password', password, { expires: 1, path: '/' });
+                                    window.location.href = "./index.html";
+                                }
+                                if (!isValidUser) {
+                                    alert("账户或密码错误");
+                                }
+                            }
+                        );
+
+                    });
+                }
+            });
+        });
+
+    </script>
 
 </body>
 
