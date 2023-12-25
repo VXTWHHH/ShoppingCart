@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+    <link href="../css/index.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./css/shopping-cart.css">
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script src="./js/jquery.cookie.js"></script>
+    <script src="./js/getUserInfo.js"></script>
+    <script src="./js/showLoginInfo.js"></script>
+    <title>购物车</title>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <ul class="navbar">
+        <li><a href="./login.html" id="login-info">请登录!</a></li>
+        <li><a href="index.html">淘宝网首页</a></li>
+        <li>
+            <a href="#">我的淘宝</a>
+            <!-- 下拉框 -->
+            <ul class="dropdown">
+                <li><a href="#">已买到的宝贝</a></li>
+                <li><a href="#">我的足迹</a></li>
+            </ul>
+        </li>
+        <li><a href="#">购物车</a></li>
+        <li>
+            <a href="#">收藏夹</a>
+            <!-- 下拉框 -->
+            <ul class="dropdown">
+                <li><a href="#">收藏的宝贝</a></li>
+                <li><a href="#">收藏的店铺</a></li>
+            </ul>
+        </li>
+    </ul>
+
+
+
+
+
+    <div class="main" id="cart">
+        <div class="cartBar">
+            <span>我的购物车</span>
+            <div class="cart-sum">
+
+            </div>
+        </div>
+        <div class="cartMain">
+
+            <!-- 信息栏 -->
+            <div class="cartTitle clearfix">
+                <ul>
+                    <li style="width:600px">商品信息</li>
+                    <li style="width:70px">单价</li>
+                    <li style="width:70px">数量</li>
+                    <li style="width:50px">金额</li>
+                    <li style="width:50px">操作</li>
+                </ul>
+            </div>
+
+            <!-- 商品信息列表 -->
+            <div id="orderList">
+                <div class="orderHolder" id="orderHolder1">
+                    <!-- 全选框 -->
+                    <div><input type="checkbox" class="cart-checkbox" id="selectAllCheckbox">全选 </div>
+
+                    <!-- 商品信息 -->
+                    <div class="orderContent">
+                        <ul class="item-content clearfix">
+                            <li class="td-chk"><input type="checkbox" name="items"></li>
+                            <li class="td-item"><img src="../images/11.webp" /><span>长远无尘粉笔水溶性无尘粉笔20支儿童</span></li>
+                            <li class="td-info">颜色分类：彩色替换笔芯6支装</li>
+                            <li class="td-price">￥<span>8.50</span></li>
+                            <li class="td-amount"><i class="fa fa-minus"></i><input value="1" type="text"
+                                    name="number"><i class="fa fa-plus"></i></li>
+                            <li class="td-sum price">￥<span>8.50</span></li>
+                            <li class="td-ope"><a>删除</a></li>
+                        </ul>
+                        <ul class="item-content clearfix">
+                            <li class="td-chk"><input type="checkbox" name="items"></li>
+                            <li class="td-item"><img src="../images/11.webp" /><span>长远无尘粉笔水溶性无尘粉笔20支儿童</span></li>
+                            <li class="td-info">颜色分类：彩色替换笔芯6支装</li>
+                            <li class="td-price">￥<span>8.50</span></li>
+                            <li class="td-amount"><i class="fa fa-minus"></i><input value="1" type="text"
+                                    name="number"><i class="fa fa-plus"></i></li>
+                            <li class="td-sum price">￥<span>8.50</span></li>
+                            <li class="td-ope"><a>删除</a></li>
+                        </ul>
+                        <ul class="item-content clearfix">
+                            <li class="td-chk"><input type="checkbox" name="items"></li>
+                            <li class="td-item"><img src="../images/11.webp" /><span>长远无尘粉笔水溶性无尘粉笔20支儿童</span></li>
+                            <li class="td-info">颜色分类：彩色替换笔芯6支装</li>
+                            <li class="td-price">￥<span>8.50</span></li>
+                            <li class="td-amount"><i class="fa fa-minus"></i><input value="1" type="text"
+                                    name="number"><i class="fa fa-plus"></i></li>
+                            <li class="td-sum price">￥<span>8.50</span></li>
+                            <li class="td-ope"><a>删除</a></li>
+                        </ul>
+                        <ul class="item-content clearfix">
+                            <li class="td-chk"><input type="checkbox" name="items"></li>
+                            <li class="td-item"><img src="../images/11.webp" /><span>长远无尘粉笔水溶性无尘粉笔20支儿童</span></li>
+                            <li class="td-info">颜色分类：彩色替换笔芯6支装</li>
+                            <li class="td-price">￥<span>8.50</span></li>
+                            <li class="td-amount"><i class="fa fa-minus"></i><input value="1" type="text"
+                                    name="number"><i class="fa fa-plus"></i></li>
+                            <li class="td-sum price">￥<span>8.50</span></li>
+                            <li class="td-ope"><a>删除</a></li>
+                        </ul>
+                        <ul class="item-content clearfix">
+                            <li class="td-chk"><input type="checkbox" name="items"></li>
+                            <li class="td-item"><img src="../images/11.webp" /><span>长远无尘粉笔水溶性无尘粉笔20支儿童</span></li>
+                            <li class="td-info">颜色分类：彩色替换笔芯6支装</li>
+                            <li class="td-price">￥<span>8.50</span></li>
+                            <li class="td-amount"><i class="fa fa-minus"></i><input value="1" type="text"
+                                    name="number"><i class="fa fa-plus"></i></li>
+                            <li class="td-sum price">￥<span>8.50</span></li>
+                            <li class="td-ope"><a>删除</a></li>
+                        </ul>
+                        <ul class="item-content clearfix">
+                            <li class="td-chk"><input type="checkbox" name="items"></li>
+                            <li class="td-item"><img src="../images/11.webp" /><span>长远无尘粉笔水溶性无尘粉笔20支儿童</span></li>
+                            <li class="td-info">颜色分类：彩色替换笔芯6支装</li>
+                            <li class="td-price">￥<span>8.50</span></li>
+                            <li class="td-amount"><i class="fa fa-minus"></i><input value="1" type="text"
+                                    name="number"><i class="fa fa-plus"></i></li>
+                            <li class="td-sum price">￥<span>8.50</span></li>
+                            <li class="td-ope"><a>删除</a></li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 结算栏 -->
+            <div class="cartBar">
+                <div class="cart-sum">
+                    <span class="pay-text" id="cart-number">已选商品0件</span>
+                    <span class="pay-text">合计（不含运费）：￥<strong class="price" id="cart-sum">0.00</strong></span>
+                    <a id="J_SmallSubmit" class="submit-btn">结&nbsp;算</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //先判断一下用户登录状态，如果未登录则跳转到登录界面，如果是临时注册则显示默认数据
+        //这两个变量已经在里面showLoginInfo里面定义了，耦合性有点高
+        //let username = $.cookie('username');
+        //let password = $.cookie('password');
+
+        var showName = username;
+
+        if (username && password) {
+            //查询用户数据，如果没有则显示默认数据
+            getUserInfo(
+                (e, d) => {
+                    d.forEach(element => {
+                        if (element.username == username && element.password == password) {
+                            //无限滚动不需要分页
+                            getCartList(d);
+                            return;
+                        }
+                    });
+                }
+            );
+
+        } else {
+            console.log("用户未登录");
+            //window.location.href = "./login.html";
+        }
+
+
+        $(function () {
+            selectAll();
+            numOperation();
+            changeUnitPrice();
+            delLine();
+            displayTotalPriceOnChange();
+        })
+
+
+        //全选
+        function selectAll() {
+            // 监听selectAllCheckbox的变化事件
+            $("#selectAllCheckbox").on("change", function () {
+                // 获取selectAllCheckbox的选中状态
+                const isChecked = $(this).prop("checked");
+                // 将其他复选框的状态设置为与selectAllCheckbox相同
+                $("input[type='checkbox']").prop("checked", isChecked);
+                //手动触发事件
+                $('.td-chk input').change();
+            });
+        }
+
+
+        //对数量操作
+        function numOperation() {
+            $(".fa-plus").on("click", function () {
+                // 获取相应输入框的值并递增
+                let inputField = $(this).siblings('input[name="number"]');
+                let oldValue = parseInt(inputField.val());
+                let newValue = oldValue + 1;
+
+                // 更新输入框的值
+                inputField.val(newValue);
+                //手动触发事件
+                inputField.change();
+            });
+            $(".fa-minus").on("click", function () {
+                // 获取相应输入框的值并递增
+                let inputField = $(this).siblings('input[name="number"]');
+                let oldValue = parseInt(inputField.val());
+                let newValue = oldValue - 1;
+
+                // 更新输入框的值
+                if (newValue < 1) {
+                    newValue = 1;
+                }
+                inputField.val(newValue);
+                //手动触发事件
+                inputField.change();
+            });
+        }
+
+        //获取单行总价
+        function getLineTotalPrice(node) {
+            let unitPriceRaw = $(node).find('.td-price span').text();
+            let unitPrice = (Math.floor(parseFloat(unitPriceRaw) * 100) / 100).toFixed(2);
+            let amount = $(node).find('.td-amount input').val();
+            let LineTotalPrice = (amount * unitPrice).toFixed(2);
+            return LineTotalPrice;
+        }
+
+        // 改变单行总价
+        function changeUnitPrice() {
+            $('.td-amount input').on('change', function () {
+                let LineTotalPrice = getLineTotalPrice(this.parentNode.parentNode);
+                $(this.parentNode.parentNode).find('.td-sum span').text(LineTotalPrice);
+                return LineTotalPrice;
+            });
+        }
+
+        //删除单行商品
+        function delLine() {
+            $('.td-ope').on('click', function () {
+                $(this.parentNode).find('.td-chk input').prop("checked", false);
+                $(this.parentNode).find('.td-chk input').change();
+                $(this).parent().remove();
+            })
+        }
+
+        //根据变化实时显示总价
+        function displayTotalPriceOnChange(){
+            $('.td-chk input').on('change',function(){
+                let totalPrice = calculateSelectedPrice();
+                $('#cart-sum').text(totalPrice.toFixed(2));
+            });
+             $('.td-amount input').on('change',function(){
+                console.log(1111);
+                let totalPrice = calculateSelectedPrice();
+                $('#cart-sum').text(totalPrice.toFixed(2));
+            });
+        }
+
+
+        //计算选中价格
+        function calculateSelectedPrice() {
+            let totalPrice = 0;
+
+            let selectedInput = $('.td-chk input:checked').each(
+                function () {
+                    $(this.parentNode.parentNode).find('.td-sum span').each(
+                        function () {
+                            let linePrice = $(this).text();
+                            totalPrice += parseFloat(linePrice);
+                        }
+                    )
+                }
+            );
+            return totalPrice;
+        }
+    </script>
+</body>
+
+</html>

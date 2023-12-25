@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script src="./js/jquery.cookie.js"></script>
+    <script src="./js/getProductions.js"></script>
+    <script src="./js/getProductionByIds.js"></script>
 </head>
+
 <body>
-    <div class="bg-info clearfix">
-        <button type="button" class="btn btn-secondary float-left">向左浮动（float）的示例按钮</button>
-        <button type="button" class="btn btn-secondary float-right">向右浮动（float）的示例按钮</button>
-      </div>
+    <script type="module">
+        let testData = [];
+        testData = await getProductions(
+           async (e, data) => {
+               await getProductionByIds([1, 2, 5]).then(d => {
+                    testData = d;
+                    console.log(testData);
+                });
+                console.log(testData);
+            }
+        )
+        console.log(testData);
+
+    </script>
 </body>
+
 </html>
