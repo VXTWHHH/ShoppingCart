@@ -9,6 +9,9 @@
     <script src="./js/jquery.cookie.js"></script>
     <script src="./js/getUserInfo.js"></script>
     <script src="./js/showLoginInfo.js"></script>
+    <script src="./js/getProductions.js"></script>
+    <script src="./js/getProductionByIds.js"></script>
+    <script src="./js/getCartList.js"></script>
     <title>购物车</title>
 </head>
 
@@ -147,33 +150,34 @@
 
     <script>
         //先判断一下用户登录状态，如果未登录则跳转到登录界面，如果是临时注册则显示默认数据
-        //这两个变量已经在里面showLoginInfo里面定义了，耦合性有点高
+        //这两个变量已经在里面showLoginInfo里面定义了
         //let username = $.cookie('username');
         //let password = $.cookie('password');
 
-        var showName = username;
 
-        if (username && password) {
-            //查询用户数据，如果没有则显示默认数据
-            getUserInfo(
-                (e, d) => {
-                    d.forEach(element => {
-                        if (element.username == username && element.password == password) {
-                            //无限滚动不需要分页
-                            getCartList(d);
-                            return;
-                        }
-                    });
-                }
-            );
+           function init(){
+            if (username && password) {
+                //查询用户数据，如果没有则显示默认数据
+                getUserInfo(
+                    (e, d) => {
+                        d.forEach(element => {
+                            if (element.username == username && element.password == password) {
+                                //无限滚动不需要分页
+                                getCartList(element);
+                            }
+                        });
+                    }
+                );
 
-        } else {
-            console.log("用户未登录");
-            //window.location.href = "./login.html";
-        }
+            } else {
+                console.log("用户未登录");
+                window.location.href = "./login.html";
+            }
+           }
 
 
         $(function () {
+            init();
             selectAll();
             numOperation();
             changeUnitPrice();
@@ -185,7 +189,8 @@
         //全选
         function selectAll() {
             // 监听selectAllCheckbox的变化事件
-            $("#selectAllCheckbox").on("change", function () {
+            //事件委托，绑定到document上，防止数据初始化后监听丢失的问题
+            $(document).on("change","#selectAllCheckbox", function () {
                 // 获取selectAllCheckbox的选中状态
                 const isChecked = $(this).prop("checked");
                 // 将其他复选框的状态设置为与selectAllCheckbox相同
@@ -198,7 +203,7 @@
 
         //对数量操作
         function numOperation() {
-            $(".fa-plus").on("click", function () {
+            $(document).on("click",".fa-plus", function () {
                 // 获取相应输入框的值并递增
                 let inputField = $(this).siblings('input[name="number"]');
                 let oldValue = parseInt(inputField.val());
@@ -209,7 +214,7 @@
                 //手动触发事件
                 inputField.change();
             });
-            $(".fa-minus").on("click", function () {
+            $(document).on("click", ".fa-minus",function () {
                 // 获取相应输入框的值并递增
                 let inputField = $(this).siblings('input[name="number"]');
                 let oldValue = parseInt(inputField.val());
@@ -236,7 +241,7 @@
 
         // 改变单行总价
         function changeUnitPrice() {
-            $('.td-amount input').on('change', function () {
+            $(document).on('change','.td-amount input', function () {
                 let LineTotalPrice = getLineTotalPrice(this.parentNode.parentNode);
                 $(this.parentNode.parentNode).find('.td-sum span').text(LineTotalPrice);
                 return LineTotalPrice;
@@ -245,7 +250,7 @@
 
         //删除单行商品
         function delLine() {
-            $('.td-ope').on('click', function () {
+            $(document).on('click','.td-ope', function () {
                 $(this.parentNode).find('.td-chk input').prop("checked", false);
                 $(this.parentNode).find('.td-chk input').change();
                 $(this).parent().remove();
@@ -253,12 +258,12 @@
         }
 
         //根据变化实时显示总价
-        function displayTotalPriceOnChange(){
-            $('.td-chk input').on('change',function(){
+        function displayTotalPriceOnChange() {
+            $(document).on('change','.td-chk input', function () {
                 let totalPrice = calculateSelectedPrice();
                 $('#cart-sum').text(totalPrice.toFixed(2));
             });
-             $('.td-amount input').on('change',function(){
+            $(document).on('change', '.td-amount input',function () {
                 console.log(1111);
                 let totalPrice = calculateSelectedPrice();
                 $('#cart-sum').text(totalPrice.toFixed(2));

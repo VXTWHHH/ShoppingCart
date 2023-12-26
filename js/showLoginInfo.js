@@ -10,7 +10,6 @@ if (username) {
                 (e, d) => {
                     d.forEach(element => {
                         if (element.username == username && element.password == password) {
-                            console.log(element);
                             $("#login-info").text(element.username);
                             $("#login-info").attr("href","#");
                         }
