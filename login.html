@@ -33,15 +33,25 @@
     </style>
 </head>
 
-<body class="text-center">
+<body>
+    <div class="banner">
+        <div class="bannerLogo"><img src="./images/bannerLogo.png" alt=""></div>
 
-    <form class="form-signin">
-        <h1 class="h3 mb-3 font-weight-normal">密码登录</h1>
-        <input type="text" id="username" class="form-control" placeholder="账户名/邮箱号/手机号" required autofocus>
-        <input type="password" id="password" class="form-control" placeholder="请输入登录密码" required>
-        <button class="btn btn-lg btn-login btn-block" type="submit">登录</button>
-        <span class="register"><a href="./register.html">免费注册</a></span>
-    </form>
+    </div>
+    <div class="content">
+       <div class="wrap-login">
+        <form class="form-signin">
+            <h1 class="h3 mb-3 font-weight-normal text-white ">密码登录</h1>
+            <input type="text" id="username" class="form-control" placeholder="账户名/邮箱号/手机号" required autofocus>
+            <input type="password" id="password" class="form-control" placeholder="请输入登录密码" required>
+            <button class="btn btn-lg btn-login btn-block" type="submit">登录</button>
+            <span class="register"><a href="./register.html" class="text-muted" style="text-decoration: none;">免费注册</a></span>
+        </form>
+       </div>
+    </div>
+    <div class="tail">
+
+    </div>
 
     <script>
         $(document).ready(function () {
@@ -69,8 +79,8 @@
                                 });
                                 if (username == userInput && password == passInput) {
                                     isValidUser = true;
-                                    $.cookie('username', username, { expires: 1, path: '/' });
-                                    $.cookie('password', password, { expires: 1, path: '/' });
+                                    // $.cookie('username', username, { expires: 1, path: '/' });
+                                    // $.cookie('password', password, { expires: 1, path: '/' });
                                     window.location.href = "./index.html";
                                 }
                                 if (!isValidUser) {

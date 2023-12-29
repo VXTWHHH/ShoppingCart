@@ -1,0 +1,176 @@
+<!-- 修改后的代码 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽奖</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #lottery-container {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 10px;
+        }
+
+        .lottery-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #start-button {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #result-box {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+        }
+
+        #audioPlayer {
+            display: none; /* 初始时隐藏 */
+        }
+          
+           #left-container img {
+            width: 150px; /* 调整图片宽度 */
+            height: auto; /* 保持纵横比 */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="left-container">
+        <!-- 插入图片 -->
+        <img src="images\wen.gif" alt="抽奖图片">
+    </div>
+    <!-- 音频播放器 -->
+    <audio id="audioPlayer" controls loop>
+        <!-- 替换为你的音频文件路径 -->
+        <source src="images\往年柚子茶 - All My People (鹿紫云一).mp3" type="audio/mp3">
+    </audio>
+
+    <div id="lottery-container"></div>
+    <button id="start-button">开始抽奖</button>
+
+    <script>
+        
+        const prizes = ["红米k70pro", "iqoo12", "满20减5元券", "满50减10元券", "满100减25元券", "满1000减100元券", "满500减50元券", "拯救者Y7000", "坤坤带飞一局"];
+        
+        const shuffledPrizes = prizes.sort(() => Math.random() - 0.5);
+        const lotteryContainer = document.getElementById("lottery-container");
+        const startButton = document.getElementById("start-button");
+        const audioPlayer = document.getElementById("audioPlayer");
+
+        for (let i = 0; i < 9; i++) {
+            const lotteryItem = document.createElement("div");
+            lotteryItem.className = "lottery-item";
+            lotteryItem.textContent = shuffledPrizes[i];
+            lotteryContainer.appendChild(lotteryItem);
+        }
+
+        startButton.addEventListener("click", handleStartButtonClick);
+
+        async function handleStartButtonClick() {
+            startButton.disabled = true;
+            
+            // 播放音频
+            audioPlayer.play();
+            
+            const selectedPrize = await simulateLottery();
+            startButton.disabled = false;
+
+            // 显示抽奖结果
+            alert(`恭喜您获得：${selectedPrize}`);
+            let xx= confirm('是否领取');
+            if(xx==true){
+             r();
+ }
+            // 停止音频
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0; // 重置音频播放位置
+
+            window.close();
+        }
+
+        async function simulateLottery() {
+            return new Promise(async resolve => {
+                const randomIndex = Math.floor(Math.random() * shuffledPrizes.length);
+                const selectedPrizeIndex = randomIndex;
+
+                let duration = 10; // 初始速度
+                const acceleration = 20; // 加速度
+
+                for (let i = 0; i < 9; i++) {
+                    await highlightLotteryItem(i);
+                    await delay(duration);
+                    duration += acceleration;
+                    resetLotteryItemStyles();
+                }
+
+                highlightLotteryItem(selectedPrizeIndex);
+
+                await delay(1000);
+                resolve(shuffledPrizes[selectedPrizeIndex]);
+            });
+        }
+
+        async function highlightLotteryItem(index) {
+            const lotteryItem = lotteryContainer.children[index];
+            lotteryItem.style.backgroundColor = "yellow";
+            await delay(200);
+        }
+
+        function resetLotteryItemStyles() {
+            Array.from(lotteryContainer.children).forEach(item => {
+                item.style.backgroundColor = "";
+            });
+        }
+
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function r() {
+                alert("我有一件事想跟你说");
+                alert("再过几天就是疯狂星期四");
+                alert("因为我觉得你！");
+                alert("是我这一生中");
+                alert("遇到的最大的贵人");
+                alert("V我50,这礼品就是你的了!");
+                let j = 0;
+                while (j < 1) {
+                    let response = confirm("你会V我50吗？\n请郑重的回答我!");
+                    if (response) {
+                        j = 1;
+                    } else {
+                        alert("再给你一次机会");
+                    }
+                }
+                alert("我就知道你一定请我的!!唉嘿");
+               
+            }
+    </script>
+</body>
+
+</html>

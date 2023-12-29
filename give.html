@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #countdown-container {
+            text-align: center;
+        }
+
+        #countdown {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #timer {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div id="countdown-container">
+    <img src="images\唉嘿.jpg" alt="倒计时图片" width="400" height="400">
+    <div id="countdown">倒计时: <span id="timer">15</span> 秒</div>
+    <button onclick=f();>已支付</button>
+    <button onclick=d();>取消支付</button>
+</div>
+
+<script>
+    // 设置初始倒计时时间（秒）
+    var countdownTime = 15;
+
+    // 获取显示倒计时的元素
+    var timerElement = document.getElementById('timer');
+
+    // 开始倒计时
+    var countdownInterval = setInterval(function () {
+        // 更新显示的倒计时时间
+        timerElement.textContent = countdownTime;
+
+        // 减少剩余时间
+        countdownTime--;
+
+        // 如果倒计时结束，关闭页面
+        if (countdownTime < 0) {
+            clearInterval(countdownInterval); // 停止倒计时
+            closePage(); // 调用关闭页面函数
+        }
+    }, 1000);
+
+    function f(){
+        alert("购买成功!");
+        var t = confirm("您现已成为我们的幸运用户,可前去抽取丰厚礼品");
+                    if(t==true){
+                          window.open("lottery.html", "ChildPage", "width=500,height=500");
+                    }
+                    window.close();
+    }
+function d(){
+    window.close();
+}
+
+   
+    function closePage() {
+        let a=confirm("二维码已经过期,是否刷新")
+        if(a==true){
+            window.open('give.html', '_blank', "width=500,height=500");
+        }
+        // 利用window.close()关闭页面
+        window.close();
+    }
+</script>
+
+</body>
+</html>

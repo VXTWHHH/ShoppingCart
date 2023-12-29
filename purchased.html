@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>已买到的宝贝</title>
+    <link href="css/purchased.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <!-- 导航栏 -->
+    <ul class="navbar">
+        <li><a href="#">请登录!</a></li>
+        <li><a href="index.html">淘宝网首页</a></li>
+        <li>
+            <a href="#">我的淘宝</a>
+            <!-- 下拉框 -->
+            <ul class="dropdown">
+                <li><a href="#">已买到的宝贝</a></li>
+                <li><a href="#">我的足迹</a></li>
+            </ul>
+        </li>
+        <li><a href="shoppingCar.html">购物车</a></li>
+        <li>
+            <a href="#">收藏夹</a>
+            <!-- 下拉框 -->
+            <ul class="dropdown">
+                <li><a href="#">收藏的宝贝</a></li>
+                <li><a href="#">收藏的店铺</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <header>
+        <p style="font-size: 1.5em;">已买到的宝贝</p>
+    </header>
+
+    <main id="productList">
+        <!-- 此处将由JavaScript动态插入产品项 -->
+    </main>
+
+    <div id="myModal" class="modal">
+        <span class="closeButton" onclick="closeModal()">关闭</span>
+        <div id="modalContent"></div>
+    </div>
+
+
+    <script>
+        // 模拟用户已购买的商品数据
+        const purchasedProducts = [
+            {
+                "pid": 1,
+                "name": "半墨大码男装胖人短袖t恤男冰丝宽松大号200-300斤男士夏天衣服潮",
+                "nowPrice": 86.9,
+                "imageUrl": "images/01.webp",
+                "type": "衣服"
+            },
+            {
+                "pid": 2,
+                "name": "花花公子男士短袖T恤半袖新款夏季纯色纯棉体恤白色半袖潮流打底",
+                "nowPrice": 50.0,
+                "imageUrl": "images/29.webp",
+                "type": "其他"
+            },
+            {
+                "pid": 3,
+                "name": "徐太浪短袖夏季男款t恤拼接撞色美式高街320g重磅潮牌设计感衣服",
+                "nowPrice": 50.0,
+                "imageUrl": "images/17.webp",
+                "type": "其他"
+            },
+            // 添加更多已购买商品
+        ];
+
+        // 将已购买商品数据插入到页面中
+        const productList = document.getElementById('productList');
+        purchasedProducts.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('products');
+
+            const img = document.createElement('img');
+            img.src = product.imageUrl;
+            img.alt = product.name;
+
+            // 添加点击事件处理程序
+            img.addEventListener('click', () => openModal(product));
+
+            productDiv.appendChild(img);
+
+            const productInfo = document.createElement('div');
+            productInfo.classList.add('productInfo');
+
+            const productName = document.createElement('p');
+            productName.textContent = product.name;
+            productInfo.appendChild(productName);
+
+            const price = document.createElement('p');
+            price.textContent = '价格: $' + product.nowPrice.toFixed(2);
+            productInfo.appendChild(price);
+
+            const quantity = document.createElement('p');
+            quantity.textContent = '数量: 1';  // 这里可以根据实际需求调整，默认数量为1
+            productInfo.appendChild(quantity);
+
+            productDiv.appendChild(productInfo);
+
+            productList.appendChild(productDiv);
+            // 操作按钮
+            const buttonsDiv = document.createElement('div');
+            buttonsDiv.classList.add('buttons');
+
+            // 删除按钮
+            const deleteButton = document.createElement('button');
+            deleteButton.classList.add('deleteButton');
+            deleteButton.textContent = '删除';
+            deleteButton.addEventListener('click', () => {
+                // 在实际应用中，你可能还需要向服务器发送删除请求
+                productDiv.remove();
+            });
+            buttonsDiv.appendChild(deleteButton);
+
+            // 再次购买按钮
+            const buyAgainButton = document.createElement('button');
+            buyAgainButton.classList.add('buyAgainButton');
+            buyAgainButton.textContent = '加入购物车';
+            buyAgainButton.addEventListener('click', () => {
+                // 在实际应用中，你可以执行再次购买的相关逻辑，比如将商品添加到购物车
+                alert('是否添加将："' + product.name + '"  添加到购物车');
+            });
+            buttonsDiv.appendChild(buyAgainButton);
+
+            productDiv.appendChild(buttonsDiv);
+
+            productList.appendChild(productDiv);
+        });
+
+        // 打开模态框
+        function openModal(product) {
+            const modal = document.getElementById('myModal');
+            const modalContent = document.getElementById('modalContent');
+
+            // 清空模态框内容
+            modalContent.innerHTML = '';
+
+            // 创建商品信息
+            const img = document.createElement('img');
+            img.src = product.imageUrl;
+            img.alt = product.name;
+            img.style.maxWidth = '100%';
+            modalContent.appendChild(img);
+
+            const productName = document.createElement('h2');
+            productName.textContent = product.name;
+            modalContent.appendChild(productName);
+
+            const price = document.createElement('p');
+            price.textContent = '价格: $' + product.nowPrice.toFixed(2);
+            modalContent.appendChild(price);
+
+            // 显示模态框
+            modal.style.display = 'block';
+        }
+
+        // 关闭模态框
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+
+        // 点击模态框外部区域时关闭模态框
+        window.onclick = function (event) {
+            const modal = document.getElementById('myModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>

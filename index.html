@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>天猫热卖</title>
+    <title>淘宝网</title>
     <link href="css/index.css" rel="stylesheet" type="text/css" />
     <style>
         .item,
@@ -45,7 +45,7 @@
             <a href="#">我的淘宝</a>
             <!-- 下拉框 -->
             <ul class="dropdown">
-                <li><a href="#">已买到的宝贝</a></li>
+                <li><a href="./purchased.html">已买到的宝贝</a></li>
                 <li><a href="#">我的足迹</a></li>
             </ul>
         </li>
@@ -139,7 +139,7 @@
             });
         });
 
-        function refresh(page) {
+        function refresh() {
             resetPageData();
             this.pageInfo = pagination(this.showData, this.pageInfo.pageNum);
             getList(this.pageInfo.currentPageData);
@@ -181,7 +181,8 @@
             this.showData = this.tempData;
             this.showData = priceFilter(this.showData);
             resetPageData();
-            refresh(pageInfo.pageNum=1);
+            pageInfo.pageNum=1
+            refresh();
             getList(pagination(showData, 1).currentPageData);
         }
 

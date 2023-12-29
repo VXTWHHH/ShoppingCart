@@ -140,9 +140,8 @@
             <!-- 结算栏 -->
             <div class="cartBar">
                 <div class="cart-sum">
-                    <span class="pay-text" id="cart-number">已选商品0件</span>
                     <span class="pay-text">合计（不含运费）：￥<strong class="price" id="cart-sum">0.00</strong></span>
-                    <a id="J_SmallSubmit" class="submit-btn">结&nbsp;算</a>
+                    <a id="J_SmallSubmit" class="submit-btn" onclick=succeed();>结&nbsp;算</a>
                 </div>
             </div>
         </div>
@@ -155,7 +154,7 @@
         //let password = $.cookie('password');
 
 
-           function init(){
+        function init() {
             if (username && password) {
                 //查询用户数据，如果没有则显示默认数据
                 getUserInfo(
@@ -169,11 +168,12 @@
                     }
                 );
 
+            } else if (localStorage.getItem('username') != null) {
             } else {
                 console.log("用户未登录");
                 window.location.href = "./login.html";
             }
-           }
+        }
 
 
         $(function () {
@@ -190,7 +190,7 @@
         function selectAll() {
             // 监听selectAllCheckbox的变化事件
             //事件委托，绑定到document上，防止数据初始化后监听丢失的问题
-            $(document).on("change","#selectAllCheckbox", function () {
+            $(document).on("change", "#selectAllCheckbox", function () {
                 // 获取selectAllCheckbox的选中状态
                 const isChecked = $(this).prop("checked");
                 // 将其他复选框的状态设置为与selectAllCheckbox相同
@@ -203,7 +203,7 @@
 
         //对数量操作
         function numOperation() {
-            $(document).on("click",".fa-plus", function () {
+            $(document).on("click", ".fa-plus", function () {
                 // 获取相应输入框的值并递增
                 let inputField = $(this).siblings('input[name="number"]');
                 let oldValue = parseInt(inputField.val());
@@ -214,7 +214,7 @@
                 //手动触发事件
                 inputField.change();
             });
-            $(document).on("click", ".fa-minus",function () {
+            $(document).on("click", ".fa-minus", function () {
                 // 获取相应输入框的值并递增
                 let inputField = $(this).siblings('input[name="number"]');
                 let oldValue = parseInt(inputField.val());
@@ -241,7 +241,7 @@
 
         // 改变单行总价
         function changeUnitPrice() {
-            $(document).on('change','.td-amount input', function () {
+            $(document).on('change', '.td-amount input', function () {
                 let LineTotalPrice = getLineTotalPrice(this.parentNode.parentNode);
                 $(this.parentNode.parentNode).find('.td-sum span').text(LineTotalPrice);
                 return LineTotalPrice;
@@ -250,7 +250,7 @@
 
         //删除单行商品
         function delLine() {
-            $(document).on('click','.td-ope', function () {
+            $(document).on('click', '.td-ope', function () {
                 $(this.parentNode).find('.td-chk input').prop("checked", false);
                 $(this.parentNode).find('.td-chk input').change();
                 $(this).parent().remove();
@@ -259,12 +259,11 @@
 
         //根据变化实时显示总价
         function displayTotalPriceOnChange() {
-            $(document).on('change','.td-chk input', function () {
+            $(document).on('change', '.td-chk input', function () {
                 let totalPrice = calculateSelectedPrice();
                 $('#cart-sum').text(totalPrice.toFixed(2));
             });
-            $(document).on('change', '.td-amount input',function () {
-                console.log(1111);
+            $(document).on('change', '.td-amount input', function () {
                 let totalPrice = calculateSelectedPrice();
                 $('#cart-sum').text(totalPrice.toFixed(2));
             });
@@ -286,6 +285,21 @@
                 }
             );
             return totalPrice;
+        }
+
+        function succeed() {
+            if (calculateSelectedPrice() != 0) {
+                var r = confirm("是否确认购买");
+                if (r == true) {
+                    // 打开子页面
+                    window.open('give.html', '_blank', "width=500,height=500");
+                }
+
+
+            }
+            else {
+                alert("请选择商品!!!")
+            }
         }
     </script>
 </body>
